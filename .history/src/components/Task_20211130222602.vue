@@ -1,0 +1,18 @@
+<template lang="pug">
+div.task
+	h3 {{task.text}}
+	p {{task.day}}
+</template>
+<script>
+export default {
+  name: 'Task',
+  props: {
+    task: Object,
+  },
+};
+</script>
+<style>
+.task {
+  background: #f4f4f4;
+}
+</style>

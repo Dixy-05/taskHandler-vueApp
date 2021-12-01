@@ -1,0 +1,22 @@
+<template lang="pug">
+h1 {{title}}
+button.btn(v-bind:style="{ backgroundColor: color }") {{text}} 
+
+</template>
+<script>
+export default {
+  name: 'Header',
+  //- in the props you can use either an array or an object
+  props: {
+    title:String
+    text: String,
+    color: String,
+  },
+};
+</script>
+<style scoped>
+header {
+  display: flex;
+  justify-content: space-around;
+}
+</style>
