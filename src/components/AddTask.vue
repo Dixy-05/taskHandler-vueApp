@@ -1,7 +1,6 @@
 <template lang="pug">
 div.container
-	form.add-form
-		
+	form.add-form(@submit="onSubmit")
 		div.form-control
 			label Task
 			input.input(type='text' v-model="text" name='text' placeholder='Task')
@@ -12,7 +11,7 @@ div.container
 			label 
 				b Set Reminder
 			input.checkbox(type='checkbox' v-model="reminder" name='reminder')
-	input(class='btn-block' type='submit' value='Save Task')
+		input(class='btn-block' type='submit' value='Save Task')
 </template>
 <script>
 export default {
@@ -23,6 +22,29 @@ export default {
       day: '',
       reminder: false,
     };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      if (!this.text) {
+        alert('Please add a task');
+        return;
+      }
+      const newTask = {
+        // this type of id is only for the example, should not be used in real app
+        id: Math.floor(Math.random() * 100000),
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder,
+      };
+
+      this.$emit('add-task', newTask);
+
+      // To clear the form
+      this.text = '';
+      this.day = '';
+      this.reminder = false;
+    },
   },
 };
 </script>
