@@ -33,7 +33,8 @@ export default {
       }
       const newTask = {
         // this type of id is only for the example, should not be used in real app
-        id: Math.floor(Math.random() * 100000),
+        // id: Math.floor(Math.random() * 100000),
+        //id will be added by json-server(fake api)
         text: this.text,
         day: this.day,
         reminder: this.reminder,
