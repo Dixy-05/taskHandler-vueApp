@@ -1,7 +1,7 @@
 <template lang="pug">
 div.header 
   h1 Testing Vue.js
-  Button(text='Add Task' color='green')
+  Button(@btn-click="$emit('toggle-addTask')" v-bind:text="show?'Close':'Add Task'" v-bind:color="show?'red':'green'")
 </template>
 <script>
 import Button from './Button.vue';
@@ -9,10 +9,12 @@ export default {
   name: 'Header',
   //- in the props you can use either an array or an object
   props: {
-    text: String,
-    color: String,
+    // text: String,
+    // color: String,
+    show: Boolean,
   },
   components: { Button },
+  emits: ['toggle-addTask'],
 };
 </script>
 <style scoped>

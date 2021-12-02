@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     onClick() {
-      console.log('something cool');
+      this.$emit('btn-click');
     },
   },
   components: {
@@ -27,8 +27,10 @@ export default {
   color: white;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+  border: none;
   border-radius: 10%;
   padding-right: 1em;
   padding-left: 1em;
+  cursor: pointer;
 }
 </style>

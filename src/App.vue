@@ -1,13 +1,13 @@
-<template>
-  <div class="container">
-    <Header text="Testing Vue" color="green" />
-    <AddTask @add-task="addTask" />
-    <Tasks
-      @toggle-reminder="toggleReminder"
-      v-on:delete-task="deleteTask"
-      v-bind:tasks="tasks"
-    />
-  </div>
+<template lang="pug">
+div.container
+  Header(@toggle-addTask="toggleAddTask" text="Testing Vue" color="green" v-bind:show="showAddTask") 
+  div(v-if="showAddTask")
+    AddTask(@add-task="addTask") 
+  Tasks(@toggle-reminder="toggleReminder"
+    v-on:delete-task="deleteTask"
+    v-bind:tasks="tasks")
+    
+ 
 </template>
 
 <script>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       tasks: [],
+      showAddTask: false,
     };
   },
   methods: {
@@ -37,6 +38,9 @@ export default {
         task.id === id ? { ...task, reminder: !task.reminder } : task
       );
       // console.log(id);
+    },
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask;
     },
   },
   //- created is life cycle similar to componentDidMount

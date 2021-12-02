@@ -16,6 +16,7 @@ div.container
 <script>
 export default {
   name: 'AddTask',
+
   data() {
     return {
       text: '',
@@ -83,6 +84,7 @@ export default {
   padding: 0.7em 0.7em;
   border-radius: 5px;
   width: 100%;
+  cursor: pointer;
 }
 .add-form {
   margin-bottom: 1em;
